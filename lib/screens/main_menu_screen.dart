@@ -27,9 +27,10 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen>
       vsync: this,
       duration: const Duration(milliseconds: 2800),
     )..repeat(reverse: true);
-    _pulse = Tween<double>(begin: 0.94, end: 1.0).animate(
-      CurvedAnimation(parent: _pulseCtrl, curve: Curves.easeInOut),
-    );
+    _pulse = Tween<double>(
+      begin: 0.94,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _pulseCtrl, curve: Curves.easeInOut));
     AudioService.instance.playMood(AudioMood.menu);
   }
 
@@ -100,8 +101,9 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen>
                             ),
                             boxShadow: [
                               BoxShadow(
-                                color: const Color(0xFFFF8DA1)
-                                    .withValues(alpha: 0.24),
+                                color: const Color(
+                                  0xFFFF8DA1,
+                                ).withValues(alpha: 0.24),
                                 blurRadius: 42,
                                 spreadRadius: 10,
                               ),
@@ -109,7 +111,8 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen>
                           ),
                           child: const Center(
                             child: Text(
-                              'و',
+                              '',
+                              // 'و',
                               style: TextStyle(
                                 fontSize: 64,
                                 fontWeight: FontWeight.w900,
@@ -160,7 +163,8 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen>
                         const SizedBox(height: 10),
                         _StatRow(
                           label: 'الإنجازات',
-                          value: '$achievementCount / ${game.totalAchievements}',
+                          value:
+                              '$achievementCount / ${game.totalAchievements}',
                         ),
                         const SizedBox(height: 10),
                         _StatRow(
@@ -192,7 +196,8 @@ class _MainMenuScreenState extends ConsumerState<MainMenuScreen>
                   ),
                   const SizedBox(height: 8),
                   TextButton(
-                    onPressed: () => ref.read(gameServiceProvider).resetMetaProgress(),
+                    onPressed: () =>
+                        ref.read(gameServiceProvider).resetMetaProgress(),
                     child: Text(
                       'مسح التقدم الجماعي',
                       style: TextStyle(
@@ -270,9 +275,10 @@ class _MenuButtonState extends State<_MenuButton>
       vsync: this,
       duration: const Duration(milliseconds: 120),
     );
-    _scale = Tween<double>(begin: 1, end: 0.97).animate(
-      CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut),
-    );
+    _scale = Tween<double>(
+      begin: 1,
+      end: 0.97,
+    ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut));
   }
 
   @override

@@ -159,7 +159,9 @@ class GameService extends ChangeNotifier {
       }
       if (_chapterTwoPath == ChapterTwoPath.aquarium &&
           _transitionState == TransitionState.exhaustedAware) {
-        buffer.write('الكيان يقف قرب المرآة بوضوح كامل هذه المرة، لكنه لا يهاجم. يمد يده.\n\n');
+        buffer.write(
+          'الكيان يقف قرب المرآة بوضوح كامل هذه المرة، لكنه لا يهاجم. يمد يده.\n\n',
+        );
       }
       if (_chapterTwoPath == ChapterTwoPath.lighthouse &&
           _transitionState == TransitionState.techAnchored) {
@@ -168,7 +170,9 @@ class GameService extends ChangeNotifier {
         );
       }
       if (_sharedSymbolUnlocked) {
-        buffer.write('الرمز المشقوق ينبض على السقف للحظة ثم يختفي داخل انعكاسك.');
+        buffer.write(
+          'الرمز المشقوق ينبض على السقف للحظة ثم يختفي داخل انعكاسك.',
+        );
       }
       return buffer.toString().trim();
     }
@@ -286,6 +290,7 @@ class GameService extends ChangeNotifier {
 
     if (_currentSceneId == 'chapter_three_intro') {
       _unlockAutomaticChapterThreeLore();
+      _routeChapterThreeIntro();
     }
 
     if (_currentSceneId == 'ending_result') {
@@ -309,6 +314,26 @@ class GameService extends ChangeNotifier {
         _loreArchive.contains(LoreEntry.repetitionIllusion)) {
       _currentLore.add(LoreEntry.selfReflection);
       _loreArchive.add(LoreEntry.selfReflection);
+    }
+  }
+
+  void _routeChapterThreeIntro() {
+    switch (_finalRoute) {
+      case FinalRoute.mirror:
+        _currentSceneId = 'mirror_path';
+        break;
+      case FinalRoute.panel:
+        _currentSceneId = 'panel_path';
+        break;
+      case FinalRoute.surrender:
+        _currentSceneId = 'surrender_path';
+        break;
+      case FinalRoute.observer:
+        _currentSceneId = 'observer_path';
+        break;
+      case null:
+        _currentSceneId = 'ending_result';
+        break;
     }
   }
 
@@ -355,10 +380,7 @@ class GameService extends ChangeNotifier {
       return EndingType.invertedReflection;
     }
 
-    if (_awareness >= 65 &&
-        _sanity >= 50 &&
-        loreCount >= 3 &&
-        mirrorOrPanel) {
+    if (_awareness >= 65 && _sanity >= 50 && loreCount >= 3 && mirrorOrPanel) {
       return EndingType.integration;
     }
 

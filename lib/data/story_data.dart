@@ -540,4 +540,115 @@ const Map<String, StoryScene> storyScenes = {
     text: '',
     choices: [],
   ),
+  'mirror_path': StoryScene(
+    id: 'mirror_path',
+    chapter: ChapterType.chapterThree,
+    kind: SceneKind.story,
+    title: 'الفصل الثالث: انعكاس الذات',
+    mood: AudioMood.finalRoom,
+    text:
+        'تقرّب من المرآة ببطء. وجهك ينعكس عليها، لكن شيئاً ما ليس صحيحاً.\n\n'
+        'الانعكاس يعكس ابتسامتك قبل أن تبتسم. يحرك يده قبل أن تحركها.\n\n'
+        'ثم تتجمد. الكيان يقف خلف انعكاسك. يمد يده عبر سطح المرآة، '
+        'وأنت تمد يدك تلقائياً لتسحبها.\n\n'
+        '"لنؤلم معاً هذه المرة."',
+    choices: [
+      StoryChoice(
+        text: 'امد يدك',
+        nextSceneId: 'ending_result',
+        isPrimary: true,
+      ),
+      StoryChoice(
+        text: 'تراجع',
+        nextSceneId: 'ending_result',
+        sanityDelta: -4,
+        awarenessDelta: 6,
+      ),
+    ],
+  ),
+  'panel_path': StoryScene(
+    id: 'panel_path',
+    chapter: ChapterType.chapterThree,
+    kind: SceneKind.story,
+    title: 'الفصل الثالث: بروتوكول المزامنة',
+    mood: AudioMood.finalRoom,
+    text:
+        'اللوحة تضيء تلقائياً عند اقترابك. أزرار لا نهائية، '
+        'وإشارات متوهجة في نمط معروف.\n\n'
+        'على الشاشة: "دورة ٤٨ ساعة - إعادة معايرة. '
+        'اختر: الاستمرار أو الكسر."\n\n'
+        'هل تعرف ما الذي تفعله؟',
+    choices: [
+      StoryChoice(
+        text: 'اضغط "إعادة التشغيل"',
+        nextSceneId: 'ending_result',
+        isPrimary: true,
+        awarenessDelta: 8,
+      ),
+      StoryChoice(
+        text: 'اضغط "كسر الحلقة"',
+        nextSceneId: 'ending_result',
+        awarenessDelta: 14,
+        sanityDelta: -8,
+      ),
+      StoryChoice(
+        text: 'لا تلمس اللوحة',
+        nextSceneId: 'ending_result',
+        sanityDelta: 4,
+      ),
+    ],
+  ),
+  'surrender_path': StoryScene(
+    id: 'surrender_path',
+    chapter: ChapterType.chapterThree,
+    kind: SceneKind.story,
+    title: 'الفصل الثالث: الاستسلام',
+    mood: AudioMood.finalRoom,
+    text:
+        'تغمض عينيك. البرد يتسلل، ثم الدفء. الغرفة تختفي.\n\n'
+        'في مكان ما، تسمع صوت جرس. ثم همس. ثم صوتك.\n\n'
+        '"لست سجيناً. لست مراقباً. لست شبحاً. '
+        'أنت... كنتَ دائماً جزءاً من الحلم."\n\n'
+        'العدد يعود للعد: ٤٨:٠٠',
+    choices: [
+      StoryChoice(
+        text: 'افتح عينيك',
+        nextSceneId: 'ending_result',
+        isPrimary: true,
+      ),
+      StoryChoice(
+        text: 'ابقَ مغلق العينين',
+        nextSceneId: 'ending_result',
+        sanityDelta: 2,
+      ),
+    ],
+  ),
+  'observer_path': StoryScene(
+    id: 'observer_path',
+    chapter: ChapterType.chapterThree,
+    kind: SceneKind.story,
+    title: 'الفصل الثالث: المراقب',
+    mood: AudioMood.finalRoom,
+    text:
+        'تغادر الغرفة. الممر يمتد إلى ما لا نهاية. '
+        'أبواب على كل جانب، وكل باب يؤدي إلى عالم آخر.\n\n'
+        'ترى نفسك من الخلف. ترى يدك على الباب. '
+        'تفهم: لست داخلاً. أنت خارج.\n\n'
+        'الجدران شفافة. الغرفة مرئية. '
+        'أنت ترى نفسك جالساً على السرير، تقرأ هذه الكلمات الآن.',
+    choices: [
+      StoryChoice(
+        text: 'عد إلى الغرفة',
+        nextSceneId: 'ending_result',
+        isPrimary: true,
+        awarenessDelta: 6,
+      ),
+      StoryChoice(
+        text: 'استمر بالمشاهدة',
+        nextSceneId: 'ending_result',
+        awarenessDelta: 10,
+        sanityDelta: -4,
+      ),
+    ],
+  ),
 };
